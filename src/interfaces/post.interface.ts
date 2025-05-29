@@ -12,3 +12,10 @@ export interface IAllPosts {
   page_size: number | undefined;
   total: number | undefined;
 }
+
+export interface IPostData {
+    id?: string;
+    title: string;
+    description: string;
+    tags: string[];
+}

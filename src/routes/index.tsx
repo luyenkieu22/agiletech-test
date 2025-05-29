@@ -3,8 +3,9 @@ import HomePage from "../pages/HomePage";
 import UserPage from "../pages/UserPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import ProfilePage from "../pages/ProfilePage";
-import ListPosts from "../components/ListPosts";
+import ListPosts from "../pages/ListPosts";
 import RequireAuth from "../pages/RequireAuth";
+import GalleriesPage from "../pages/GalleriesPage";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
                     {
                         path: "",
                         element: <ListPosts />,
+                    },
+                    {
+                        path: "posts",
+                        element: <GalleriesPage />,
                     },
                 ],
             },

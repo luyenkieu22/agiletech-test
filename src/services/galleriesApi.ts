@@ -1,5 +1,5 @@
 import axiosInstance from "../utils/axiosInstance";
 
-export const deletePost = async () => {
+export const getGalleries = async () => {
   return await axiosInstance.get("/galleries");
 };

@@ -2,18 +2,13 @@ import { useState } from "react";
 import { createPost, editPost } from "../services/postsApi";
 import { toast } from "react-toastify";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import type { IPostData } from "../interfaces/post.interface";
 
-interface PostData {
-    id?: string;
-    title: string;
-    description: string;
-    tags: string[];
-}
 
 interface DialogProfileProps {
     tagsList: string[];
     handleClose: () => void;
-    selectedData: PostData | [];
+    selectedData: IPostData | [];
 }
 
 const DialogProfile = ({
@@ -22,8 +17,7 @@ const DialogProfile = ({
     selectedData,
 }: DialogProfileProps) => {
     const queryClient = useQueryClient();
-    const [postData, setPostData] = useState<PostData>({
-        id: Array.isArray(selectedData) ? "" : selectedData.id || "",
+    const [postData, setPostData] = useState<IPostData>({
         title: Array.isArray(selectedData) ? "" : selectedData.title || "",
         description: Array.isArray(selectedData) ? "" : selectedData.description || "",
         tags: Array.isArray(selectedData) ? ["Html"] : selectedData.tags || ["Html"],
@@ -99,12 +93,12 @@ const DialogProfile = ({
                     <div className="flex justify-end space-x-2">
                         <button
                             onClick={handleClose}
-                            className="px-3 py-1 border rounded hover:bg-gray-100"
+                            className="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
                         >
                             Cancel
                         </button>
                         <button
-                            className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+                            className="bg-primary text-white cursor-pointer px-4 py-1 rounded-md hover:bg-primary-hover"
                             type="submit"
                         >
                             {!Array.isArray(selectedData) && selectedData.id ? "Update" : "Add"}

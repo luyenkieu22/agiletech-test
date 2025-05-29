@@ -8,7 +8,8 @@ export default function Sidebar() {
                 <img className="mx-auto my-4 cursor-pointer" src="/images/logo.png" alt="" />
             </Link>
             <nav className="flex flex-col gap-2 mt-8">
-                <Link to="/profile/" className="hover:underline">List Posts</Link>
+                <Link to="/profile/" className="hover:underline"></Link>
+                <Link to="/profile/posts" className="hover:underline">List Posts</Link>
                 <Link to="/" className="hover:underline">Back to home</Link>
             </nav>
         </aside>
