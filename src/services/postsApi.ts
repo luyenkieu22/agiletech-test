@@ -10,7 +10,10 @@ export const getPosts = async ({
   title: string;
   tags: string;
 }) => {
-  return await axiosInstance.get(`/posts`, { params: { page, title, tags } });
+  const titleFilter = title !== "" ? title : null;
+  return await axiosInstance.get(`/posts`, {
+    params: { page, titleFilter, tags },
+  });
 };
 export const getTags = async () => {
   return await axiosInstance.get("/posts/tags");

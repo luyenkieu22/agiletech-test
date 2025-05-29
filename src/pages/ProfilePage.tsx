@@ -4,9 +4,9 @@ import Sidebar from "../components/Sidebar"
 const ProfilePage = () => {
 
     return (
-        <div className="flex min-h-screen">
+        <div className="fixed flex min-h-[100vh] w-full">
             <Sidebar />
-            <main className="flex-1 p-4">
+            <main className="flex-1 flex">
                 <Outlet />
             </main>
         </div>

@@ -61,44 +61,56 @@ const DialogProfile = ({
             <div className="bg-white p-6 rounded shadow-lg w-[680px] h-auto">
                 <h2 className="text-2xl font-semibold">{!Array.isArray(selectedData) && selectedData.id ? "Update post" : "Add new post"}</h2>
                 <hr className="mb-6 mt-2 text-gray-300" />
-                <form className="w-full mx-auto flex flex-col gap-4 mb-6" onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="title"
-                        value={postData.title}
-                        onChange={handleChangeValue}
-                        className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
-                        placeholder="Enter title"
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="description"
-                        value={postData.description}
-                        onChange={handleChangeValue}
-                        className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
-                        placeholder="Enter description"
-                        required
-                    />
-                    <select
-                        className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
-                        value={postData.tags}
-                        name="tags"
-                        onChange={handleChangeValue}
-                    >
-                        {tagsList?.map((tag, index) => (
-                            <option value={tag} key={index + 1}>{tag}</option>
-                        ))}
-                    </select>
-                    <div className="flex justify-end space-x-2">
+                <form onSubmit={handleSubmit}>
+                    <div className="flex flex-col gap-1 py-2">
+                        <label htmlFor="title" className="text-start w-3/5 mx-auto">Title</label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={postData.title}
+                            onChange={handleChangeValue}
+                            className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
+                            placeholder="Enter title"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1 py-2">
+                        <label htmlFor="description" className="text-start w-3/5 mx-auto">Description</label>
+                        <input
+                            type="text"
+                            id="description"
+                            name="description"
+                            value={postData.description}
+                            onChange={handleChangeValue}
+                            className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
+                            placeholder="Enter description"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1 py-2">
+                        <label htmlFor="tags" className="text-start w-3/5 mx-auto">Tags</label>
+                        <select
+                            className="w-3/5 mx-auto border px-4 py-2 rounded outline-none"
+                            value={postData.tags}
+                            name="tags"
+                            id="tags"
+                            onChange={handleChangeValue}
+                        >
+                            {tagsList?.map((tag, index) => (
+                                <option value={tag} key={index + 1}>{tag}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="flex justify-end space-x-2 mt-4">
                         <button
                             onClick={handleClose}
-                            className="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300"
+                            className="px-6 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
-                            className="bg-primary text-white cursor-pointer px-4 py-1 rounded-md hover:bg-primary-hover"
+                            className="bg-primary text-white cursor-pointer px-6 py-2 rounded-lg hover:bg-primary-hover"
                             type="submit"
                         >
                             {!Array.isArray(selectedData) && selectedData.id ? "Update" : "Add"}
